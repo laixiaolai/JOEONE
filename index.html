@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>JOEONE</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style>
+*{padding: 0;margin: 0;border: none;}
+body{width: 100%; height: 100%;}
+.wrap{width: 100%;overflow: hidden;}
+#nav{background: url(images/nav.png);text-align: center;height: 80px;padding-top: 20px;position: fixed;_position:absolute;left: 0;top: 0;width: 100%;z-index: 10000;cursor: default;}
+#nav ul{margin: 0;overflow: hidden;}
+#nav li{display: inline-block;*display: inline;}
+#nav a{position: relative;display: block;*display: inline-block;text-decoration: none;outline: 0;padding: 10px 25px;margin: 0.6em 0.2em;font-weight: 700;border-radius: 8px;-moz-transition: background-color .2s ease-in-out;-webkit-transition: background-color .2s ease-in-out;-o-transition: background-color .2s ease-in-out;-ms-transition: background-color .2s ease-in-out;transition: background-color .2s ease-in-out;color: #fff;}
+#nav a:hover{background: #383838;}
+.section_wrap{width: 990px;margin:0 auto;position: relative;box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.05), inset 0px 2px 3px 0px rgba(0,0,0,0.1);}
+.section{width: 1920px; position: absolute;left: -465px;top: 0; text-align: center;height: 917px;}
+.section1{background:#000 url(images/back1.jpg) top center;position: relative;margin-top: 100px;}
+.suipian{position: relative;}
+.suipian img{vertical-align: top;-webkit-transition: -webkit-transform .2s linear;
+-moz-transition: -moz-transform .2s linear;-o-transition: -o-transform .2s linear;transition: transform .2s linear; position: absolute;}
+.suipian img:hover {-webkit-transform: translateX(-5px);-moz-transform: translateX(-5px);-ms-transform: translateX(-5px);-o-transform: translateX(-5px);transform: translateX(-5px);}
+.suipian .suipian1{ top:0; left: 0px;}
+.suipian .suipian2{ top:0; left: 227px;}
+.suipian .suipian3{ top:0; left: 815px;}
+.suipian .suipian4{ top:411px; right: 336px;}
+.suipian .suipian5{ top:500px; right: 19px;}
+.logo{position: absolute;display: block;left: 630px; top: 125px;z-index: 10;}
+.section2{background:#FFF;position: relative;padding-top: 125px;height: 792px;}
+.logo2{display: block;margin:0 auto; position: relative;z-index: 1;}
+.section2 #moveImg{display: block;width:1001px;height:917px;position: absolute;top: 0;right: -200px;background-color: #fff;}
+
+.section3{background:#000 url(images/back3.jpg) no-repeat top center;position: relative; padding-top: 160px;height: 757px;}
+
+.section3 ul{ list-style:none; height:550px; width:960px; padding:0; margin:0 auto; position: relative;}
+.section3 ul li{ display:block;position:absolute;-webkit-perspective: 500; -webkit-transform-style: preserve-3d;
+	-webkit-transition-property: perspective; -webkit-transition-duration: 0.5s;}
+.section3 ul .li1{ top:150px;left: 25px; z-index: 1;}
+.section3 ul .li2{ top:40px;left: 213px; z-index: 0}
+.section3 ul .li3{ top:0px;left: 550px;}
+.section3 ul .li4{ top:120px;left: 730px;}
+.section3 ul .li5{ top:320px;left: 460px;}
+.section3 ul li:hover{ -webkit-perspective:5000; cursor: pointer;}
+.section3 ul li img{ -moz-box-shadow:0 3px 10px #888; -webkit-box-shadow:0 3px 10px #888; box-shadow:0 3px 10px #888;-webkit-transform: rotateY(20deg); -webkit-transition-duration: 0.5s;}
+.section3 ul li:hover img{-webkit-transform:rotateY(0deg)}
+
+.pop_bg{display: none;position:absolute;top:0;left:0;width:100%;height:100%;z-index: 1040;background-color: #000;opacity: 0.75;filter: alpha(opacity=75);}
+.pop_box{margin:0 auto;width:808px; height: 488px;display: none; z-index: 99999;}
+.pop_box a{display: block;}
+.pop_box .cls_btn{ padding-left: 732px;}
+.pop_box .pop_img{ width: 732px;}
+
+.section4{}
+#container{width: 1920px;height: 917px;margin:0 auto;position: relative;left:-465px;overflow: hidden;}
+#list{width: 13440px;height: 917px;position: absolute;z-index: 1;}
+#list img{float: left;width: 1920px;}
+#buttons{position: absolute;height: 12px;width: 100px; display:block;z-index: 2;bottom: 20px;left: 880px;}
+#buttons li{cursor: pointer;float: left; display:block;border: 1px solid #fff;width: 10px;height: 10px;border-radius: 6px; margin-right: 3px;background: #444;}
+#buttons .on{background: orangered;}
+.arrow{cursor: pointer;display: none; color:#FFF;line-height: 60px;text-align: center;font-size: 46px;font-weight: bold;width: 60px; height: 60px;position: absolute;z-index: 2;top: 460px;background-color: rgba(0,0,0,.3);opacity:0.3;filter:alpha(opacity=30);text-decoration: none;}
+.arrow:hover{background-color:rgba(0,0,0,.7);opacity:0.7;filter:alpha(opacity=70);}
+#container:hover .arrow{display: block;}
+#prev{left: 465px; }
+#next{right: 465px;}
+
+.section5{background:#000 url(images/back5.jpg) no-repeat top center;position: relative;padding-top: 130px; height: 787px;}
+.section5 .weibo{width: 540px;margin: 0 auto;text-align: center;font-size: 18px;}
+.section5 .weibo h3{padding-left: 90px;background: url(images/weibo_bg.png) no-repeat 136px 0; height: 70px; line-height: 86px;font-size: 28px;}
+.section5 .weibo h4{line-height: 60px;}
+.section5 .weibo p{text-align: left;line-height: 50px;padding: 20px 0 50px 50px;font-weight: 700;}
+.share_btn{display:block;width: 255px;height: 72px;line-height: 72px;text-align: center;font-weight: 700;font-size: 30px;color: #fff;text-decoration:none;text-shadow:0 0 10px #fff;border-radius: 5px;margin: 10px auto;background-image:-webkit-linear-gradient(360deg, #53586b, #252935);background-image:linear-gradient(360deg,#53586b, #252935);transition: all .5s ease;box-shadow: 0 0 8px #fff;}
+.share_btn:hover{background-image:-webkit-linear-gradient(360deg,  #252935,#53586b);background-image:linear-gradient(360deg,#252935, #53586b);}
+.section6{background:#000 url(images/back6.jpg) no-repeat top center;position: relative;padding-top: 262px;height: 655px;}
+.section6 ul{width: 990px;margin:0 auto;}
+.section6 ul:after{content: "";clear: both;display: block;overflow: hidden;}
+.section6 li{display: inline;float: left; width: 330px;height: 483px; }
+.section6 a{display: block;position: relative; width: 282px;height: 483px;margin: 0 auto;box-shadow: 0 0 8px #000;}
+.section6 img{display: block;position: absolute;top: 0;left: 0;z-index: 1;}
+
+.section_wrap .works li {
+  float: left;
+  overflow: hidden;
+  display: block;
+  width: 330px;
+  position: relative;
+  opacity: 1;
+  height: auto;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+.section_wrap .works ul li a {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 0.5s cubic-bezier(0.75, 0.25, 0.25, 0.75);
+  -moz-transition: all 0.5s cubic-bezier(0.75, 0.25, 0.25, 0.75);
+  -ms-transition: all 0.5s cubic-bezier(0.75, 0.25, 0.25, 0.75);
+  -o-transition: all 0.5s cubic-bezier(0.75, 0.25, 0.25, 0.75);
+  transition: all 0.5s cubic-bezier(0.75, 0.25, 0.25, 0.75);
+}
+.section_wrap .works ul li .thumb {
+display: block;
+max-width: 420px;
+width: 100%;
+-webkit-transition: all 0.2s cubic-bezier(0.75, 0.25, 0.25, 0.75);
+-moz-transition: all 0.2s cubic-bezier(0.75, 0.25, 0.25, 0.75);
+-ms-transition: all 0.2s cubic-bezier(0.75, 0.25, 0.25, 0.75);
+-o-transition: all 0.2s cubic-bezier(0.75, 0.25, 0.25, 0.75);
+transition: all 0.2s cubic-bezier(0.75, 0.25, 0.25, 0.75);
+}
+.section_wrap .works ul li a:hover .thumb {
+  position: relative;
+  z-index: 0;
+  -webkit-transform: scale(1.15);
+  -moz-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  -o-transform: scale(1.15);
+  transform: scale(1.15);
+}
+
+.section7{background:#f1f1f1 url(images/back7.jpg) no-repeat top center;position: relative; padding-top: 150px;height: 767px}
+.section7 ul{width: 990px;margin: 0 auto;}
+.section7 ul:after{content: "";display: block;clear: both;overflow: hidden;}
+.section7 li{display: block;float: left;width: 192px;height: 192px;overflow: hidden;}
+.section7 a{display: block;width: 184px;height: 134px; padding-top: 50px; line-height:40px;margin: 4px auto; font-size: 20px;font-weight: 600; text-decoration:none;background-color: #000;opacity: 0.6;filter:alpha(opacity=60); color: #FFF; text-shadow: 0 0 5px #FFF;-webkit-transition: all .3s ease-in-out;
+-moz-transition: all 250ms ease-in-out;
+-o-transition: all 250ms ease-in-out;
+transition: all 250ms ease-in-out;}
+.section7 em{display:block;font-style: normal; font-size: 16px; color: #636363; line-height: 20px;text-shadow: 0 0 5px #636363;}
+.section7 a:hover{background-color: #FFF; color: #000;opacity: 0.6;filter:alpha(opacity=60);}
+.section7 .logo7{background: url(images/s7logo.png) no-repeat 0 0;}
+.section7 .logo7:hover{background: url(images/s7logo.png) no-repeat -184px 0px;}
+.section7 .logo7:hover em{color: #000;}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	//轮播
+	var container=document.getElementById('container');
+	var list=document.getElementById('list');
+	var buttons=document.getElementById('buttons').getElementsByTagName('li');
+	var prev=document.getElementById('prev');
+	var next=document.getElementById('next');
+	var index=1;
+	var animated=false;
+	var timer=null;
+
+	function showButton(){
+		for (var i =0;i< buttons.length; i++) {
+			if(buttons[i].className=='on'){
+				buttons[i].className='';
+				break;
+			}
+		};
+		buttons[index-1].className='on';
+	}
+
+	function animate(offset){
+		animated=true;
+		var newLeft=parseInt(list.style.left)+offset;
+		var time=300;//位移总时间
+		var interval=10;//位移间隔时间
+		var speed=offset/(time/interval);//每次位移量
+
+		function go(){
+			if((speed<0&&parseInt(list.style.left)>newLeft)||(speed>0&&parseInt(list.style.left)<newLeft)){
+				list.style.left=parseInt(list.style.left)+speed+'px';					
+				setTimeout(go,interval);
+			}
+			else{
+				animated=false;
+				list.style.left=newLeft+'px';
+				if(newLeft>-1920){
+					list.style.left=-9600+'px';
+				}
+				if(newLeft<-9600){
+					list.style.left=-1920+'px';
+				}
+			}
+		}
+		go();
+	}
+	
+	function play(){
+		timer=setInterval(function(){next.onclick();},9600);
+	}
+	function stop(){
+		clearInterval(timer);
+	}
+
+	next.onclick=function(){
+		if(index==5){
+			index=1;
+		}
+		else{
+			index+=1;
+		}
+		showButton();
+		if(!animated){
+			animate(-1920);
+		}
+		
+	}
+	prev.onclick=function(){
+		if (index==1) {
+			index=5;
+		}
+		else{
+			index-=1;
+		}			
+		showButton();
+		if(!animated){
+			animate(1920);
+		}
+	}
+
+	for(var	i=0;i<buttons.length;i++){
+		buttons[i].onclick=function(){
+			if(this.className=='on'){
+				return;
+			}
+			var myIndex=parseInt(this.getAttribute('index'));
+			var offset=(myIndex-index)*-1920;
+			if(!animated){
+				animate(offset);
+			}
+			index=myIndex;
+			showButton();
+		}
+	}
+	
+	container.onmouseover=stop;
+	container.onmouseout=play;
+	play();
+	//轮播结束
+
+	//向下滚动图片向左滑动
+	var oSect=getId('jmw_section2');
+	var oMoveImg=document.getElementById('moveImg');
+	window.onscroll=function(){
+		if(checkScrollSlide()){
+			startMove(oMoveImg, {right:1000 }, function (){
+		});
+		}
+	}
+	var tr_sd=getId('tr_sd');
+	tr_sd.onclick=function(){
+		var oHeight=oSect.offsetHeight;
+		scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+    	document.body.scrollTop=document.documentElement.scrollTop=oHeight;
+    	
+	}
+	//五个弹出层              
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+	<div id="nav">
+		<ul>
+			<li><a href="#" title="首页">首页</a></li>
+			<li><a href="#" title="职场新人">职场新人</a></li>
+			<li><a href="#" title="商务精英">商务精英</a></li>
+			<li><a href="#" title="优雅绅士">优雅绅士</a></li>
+			<li><a href="#" title="老王子">老王子</a></li>
+			<li><a href="#" title="九牧王最MAN">九牧王最MAN</a></li>
+			<li><a href="#" title="官方旗舰店">官方旗舰店</a></li>
+		</ul>
+	</div>
+
+	<div class="section_wrap">
+		<div class="section section1">
+			<div class="suipian">
+				<img class="suipian1" src="images/suipian1.png" />
+				<img class="suipian2" src="images/suipian2.png" />
+				<img class="suipian3" src="images/suipian3.png" />
+				<img class="suipian4" src="images/suipian4.png" />
+				<img class="suipian5" src="images/suipian5.png" />
+			</div>
+			<a id="tr_sd" class="logo" href="javascript:;"><img src="images/logo.png" alt="九牧王，专注男裤20年，进军电商6周年" /></a>
+		</div>
+	</div>
+	<div class="section_wrap" id="jmw_section2">
+		<div class="section section2">		
+			<img src="images/back2.jpg" id="moveImg" />
+			<a class="logo2" href="javascript:;"><img src="images/s2_logo.png" alt="九牧王，成就最男人的你" width="799" height="712" /></a>
+		</div>
+	</div>
+
+	<div class="section_wrap">
+		<div class="section section3">
+			<ul>
+		    	<li id="li1" class="li1">
+		        	<img src="images/tr1.jpg" width="199" />
+		        </li>
+		        <li id="li2" class="li2">
+		        	<img src="images/tr2.jpg" width="199" />
+		        </li>
+		        <li id="li3" class="li3">
+		        	<img src="images/tr3.jpg" width="199" />
+		        </li>
+		        <li id="li4" class="li4">
+		        	<img src="images/tr4.jpg" width="199" />
+		        </li>
+		        <li id="li5" class="li5">
+		        	<img src="images/tr5.jpg" width="199" />
+		        </li>
+		    </ul>
+		</div>
+		<div id="pop_wrap">
+			<div class="pop_bg" id="pop_bg"></div>
+	        <div class="pop_box" id="pop_box1">
+	        	<a class="cls_btn" id="cls_btn1" href="javascript:;"><img src="images/close_btn.png" /></a>
+	            <a class="pop_img" href="#" target="_blank"><img src="images/pop1.jpg" /></a>
+	        </div>
+	        <div class="pop_box" id="pop_box2">
+	        	<a class="cls_btn" id="cls_btn2" href="javascript:;"><img src="images/close_btn.png" /></a>
+	            <a class="pop_img" href="#" target="_blank"><img src="images/pop2.jpg" /></a>
+	        </div>
+	        <div class="pop_box" id="pop_box3">
+	        	<a class="cls_btn" id="cls_btn3" href="javascript:;"><img src="images/close_btn.png" /></a>
+	            <a class="pop_img" href="#" target="_blank"><img src="images/pop3.jpg" /></a>
+	        </div>
+	        <div class="pop_box" id="pop_box4">
+	        	<a class="cls_btn" id="cls_btn4" href="javascript:;"><img src="images/close_btn.png" /></a>
+	            <a class="pop_img" href="#" target="_blank"><img src="images/pop4.jpg" /></a>
+	        </div>
+	        <div class="pop_box" id="pop_box5">
+	        	<a class="cls_btn" id="cls_btn5" href="javascript:;"><img src="images/close_btn.png" /></a>
+	            <a class="pop_img" href="#" target="_blank"><img src="images/pop5.jpg" /></a>
+	        </div>
+		</div>
+	</div>
+	<div class="section_wrap">
+		<div id="container">
+			<div id="list" style="left:-1920px;">
+				<img src="images/banner5.jpg" alt="">
+				<img src="images/banner1.jpg" alt="">
+				<img src="images/banner2.jpg" alt="">
+				<img src="images/banner3.jpg" alt="">
+				<img src="images/banner4.jpg" alt="">
+				<img src="images/banner5.jpg" alt="">
+				<img src="images/banner1.jpg" alt="">
+			</div>
+			<ul id="buttons" style="display:none;">
+				<li class="on" index="1"></li>
+				<li index="2"></li>
+				<li index="3"></li>
+				<li index="4"></li>
+				<li index="5"></li>
+			</ul>
+			<a href="javascript:;" class="arrow" id="prev">&lt;</a>
+			<a href="javascript:;" class="arrow" id="next">&gt;</a>
+		</div>
+	</div>
+	<div class="section_wrap">
+		<div class="section section5">
+			<div class="weibo">
+				<h3>微博@转发有礼</h3>
+				<h4>活动期间艾特你心中最MAN的人，即可参与微博抽奖</h4>
+				<p>
+					一等奖:<br />
+					二等奖:<br />
+					三等奖:<br />
+					四等奖:<br />
+					五等奖:<br />
+					六等奖:
+				</p>
+				<a class="share_btn" rel="nofollow" href="javascript:void((function(s,d,e){try{}catch(e){}var%20f='http://v.t.sina.com.cn/share/share.php?',u=d.location.href,p=['url=',e(u),'&title=',e(d.title),'&appkey=1392530042'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));">立即转发</a>
+			</div>
+		</div>
+	</div>
+	<div class="section_wrap">
+		<div class="section section6 works">
+			<ul>
+				<li><a href="#" target="_blank"><img class="thumb" src="images/s61.jpg" /><img src="images/s61_mask.png" /></a></li>
+				<li><a href="#" target="_blank"><img class="thumb" src="images/s61.jpg" /><img src="images/s61_mask.png" /></a></li>
+				<li><a href="#" target="_blank"><img class="thumb" src="images/s61.jpg" /><img src="images/s61_mask.png" /></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="section_wrap">
+		<div class="section section7">
+			<ul>
+				<li><a class="logo7" href="#">&nbsp;</a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+				<li style="visibility: hidden;"><a href="#">test</a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+				<li style="visibility: hidden;"><a href="#">test</a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+				<li><a href="#">首页<br /><em>HOME</em></a></li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript">
+function getStyle(obj,name)
+{
+	return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj, false)[name];
+}
+
+//所有的都到了——关闭
+//没有没到的——关闭
+
+function startMove(obj, json, fn)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function (){
+		var bStop=true;		//假设：所有的都到了
+		
+		for(var name in json)
+		{
+			if(name=='opacity')
+			{
+				var cur=Math.round(parseFloat(getStyle(obj, name))*100);
+			}
+			else
+			{
+				var cur=parseInt(getStyle(obj, name));
+			}
+			
+			var speed=(json[name]-cur)/5;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			
+			if(name=='opacity')
+			{
+				obj.style.filter='alpha(opacity:'+(cur+speed)+')';
+				obj.style.opacity=(cur+speed)/100;
+			}
+			else
+			{
+				obj.style[name]=cur+speed+'px';
+			}
+			
+			if(cur!=json[name])
+			{
+				bStop=false;
+			}
+		}
+		
+		if(bStop)
+		{
+			clearInterval(obj.timer);
+			if(fn)
+			{
+				fn();
+			}
+		}
+	}, 100);
+}
+
+//检测是否具备了滚动改变背景的条件
+function checkScrollSlide(){
+	var oBoxs=document.getElementById('jmw_section2');
+	var oBoxH=oBoxs.offsetTop+Math.floor(oBoxs.offsetHeight*2/3);
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop; 
+	var height=document.documentElement.clientHeight||document.body.clientHeight;
+	return(oBoxH<scrollTop+height)?true:false;
+	
+}
+function getId(id){
+    var $=document.getElementById(id);
+    return $;
+};
+function getByClass(clsName, parent){
+    //判断是否有父元素这个参数传进来
+
+    var oParent=parent?document.getElementById(parent):document;
+    //1.所有的选出来
+    var aEle=oParent.getElementsByTagName('*');
+    var arr=[];
+    
+    //2.筛选——选中塞进arr
+    for(var i=0;i<aEle.length;i++)
+    {
+        if(aEle[i].className==clsName)
+        {
+            arr.push(aEle[i]);
+        }
+    }
+    
+    //3.把所有的返回出去
+    return arr;
+};
+//弹出窗口
+function pop_box(trigger,popBg,popBox,closeBtn){
+    var oTrigger=getId(trigger);
+    var oPopBg=getId(popBg);
+    var oPopBox=getId(popBox);
+    var oCloseBtn=getId(closeBtn);
+    var height=document.documentElement.scrollHeight||document.body.scrollHeight;
+    var cHeight=document.documentElement.clientHeight||document.body.clientHeight;
+    var cWidth=document.documentElement.clientWidth||document.body.clientWidth;
+    oTrigger.onclick=function(){
+    	
+        oPopBg.style.cssText="display:block;height:"+height+"px;width:"+cWidth+"px";
+        oPopBox.style.cssText="display:block;position:fixed;";
+        var oTop=parseInt((cHeight-oPopBox.offsetHeight)/2);
+        var oLeft=parseInt((cWidth-oPopBox.offsetWidth)/2);
+        oPopBox.style.top=oTop+"px";
+        oPopBox.style.left=oLeft+"px";
+    }
+    oPopBg.onclick=oCloseBtn.onclick=function(){
+    	debugger;
+        oPopBox.style.display="none";
+        oPopBg.style.display="none";
+    }
+
+}
+
+pop_box('li1','pop_bg','pop_box1','cls_btn1');
+pop_box('li2','pop_bg','pop_box2','cls_btn2');
+pop_box('li3','pop_bg','pop_box3','cls_btn3');
+pop_box('li4','pop_bg','pop_box4','cls_btn4');
+pop_box('li5','pop_bg','pop_box5','cls_btn5');
+ 
+</script>
+</body>
+</html>
